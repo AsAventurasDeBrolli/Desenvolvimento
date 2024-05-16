@@ -1,0 +1,35 @@
+create database AventurasDoBroly;
+use AventurasDoBroly;
+
+create table perguntas(
+	idPergunta int auto_increment,
+    fasePergunta int UNIQUE,
+    dificuldade varchar(10),
+	Pergunta varchar (500),
+    correcao varchar(1000),
+    PRIMARY KEY (idPergunta)
+);
+
+create table respostas(
+	idResposta int auto_increment,
+    idPergunta int UNIQUE,
+    resposta varchar(100),
+    FOREIGN KEY (idPergunta) REFERENCES perguntas(idPergunta),
+    primary key (idResposta, idPergunta)
+);
+
+create table usuarios(
+	idUsuario int UNIQUE auto_increment,
+    apelido varchar(50),
+    email varchar (100),
+    senha varchar(50),
+    Primary Key (idUsuario)
+    );
+
+create table administrador(
+	idAdm int UNIQUE auto_increment,
+    Apelido varchar(50),
+    email varchar(100),
+    senha varchar(50),
+    Primary Key (idAdm)
+    );
